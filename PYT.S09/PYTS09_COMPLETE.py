@@ -11,6 +11,19 @@ class Subject:
     def add_student(self, student):
         self.students.add(student)
 
+    def __len__(self):
+        return len(self.students)
+
+    def __contains__(self, student):
+        return student in self.students
+
+    def __getitem__(self, key):
+        return sorted(self.students)[key]
+
+    def __iter__(self):
+        for student in self.students:
+            yield student
+
 
 class Person:
 
@@ -22,7 +35,7 @@ class Person:
         self.birth_date = birth_date
 
     def __repr__(self):
-        return f"Person({self.name.__repr__()}, {self.surname!r}, {self.NIE!r})"
+        return f"{type(self).__name__}({self.name.__repr__()}, {self.surname!r}, {self.NIE!r})"
 
     def __str__(self):
         return "I am a Person object instance. My name is %s %s and my NIE is %s" %(self.name, self.surname, self.NIE)
@@ -45,7 +58,7 @@ class Person:
     def __hash__(self):
         return self.NIE.__hash__()
 
-    def __add__ (self, other):
+    def __add__(self, other):
         return type(self)(self.name+other.name, self.surname, "uxxxx", "None")
 
 
@@ -83,7 +96,7 @@ my_student_list = [student_instance1,
                    student_instance4]
 
 teacher_instance = Teacher(name="Xavi", surname="Jalencas", NIE="u1234",
-                          birth_date="1/1/1980", salary=100)
+                           birth_date="1/1/1980", salary=100)
 
 PYT = Subject(name="PYT", hours=125, teacher=teacher_instance)
 
