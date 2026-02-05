@@ -21,32 +21,6 @@ class Person:
         self.NIE = NIE
         self.birth_date = birth_date
 
-    def __repr__(self):
-        return f"Person({self.name.__repr__()}, {self.surname!r}, {self.NIE!r})"
-
-    def __str__(self):
-        return "I am a Person object instance. My name is %s %s and my NIE is %s" %(self.name, self.surname, self.NIE)
-
-    def __eq__(self, other_person):
-        return self.NIE == other_person.NIE
-
-    def __lt__(self, other):
-        return self.surname < other.surname
-
-    def __le__(self, other):
-        return self.surname <= other.surname
-
-    def __gt__(self, other):
-        return self.surname > other.surname
-
-    def __ge__(self, other):
-        return self.surname >= other.surname
-
-    def __hash__(self):
-        return self.NIE.__hash__()
-
-    def __add__ (self, other):
-        return type(self)(self.name+other.name, self.surname, "uxxxx", "None")
 
 
 class Teacher(Person):
