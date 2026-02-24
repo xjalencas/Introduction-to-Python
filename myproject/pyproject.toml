@@ -1,0 +1,7 @@
+[project]
+name = "ProjectName"
+version = "1.0"
+description = "Description of my project"
+authors = [{name="Xavi Jalencas", email="xavijalencas@python.org"}]
+dependencies = ["requests", "numpy"]
+
